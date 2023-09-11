@@ -18,7 +18,7 @@ const Dashboard = () => {
           onClick={toggleDrawer}
           aria-controls="drawer-disable-body-scrolling"
         >
-          Show body scrolling disabled
+          Click Here
         </button>
       </div>
       <div
