@@ -24,11 +24,11 @@ const Dashboard = () => {
     <div>
       <div className="text-end bg-black p-2">
         <p className="inline-block md:mr-72 font-bold text-white text-2xl color-change">
-          Welcome to our Stock Hub !
+          Welcome to our Stock-Hub !
         </p>
         <BiCart className="text-white inline-block font-bold mr-5 mb-3 text-3xl cursor-pointer" />
         <h1 className="font-bold inline-block text-2xl mr-5 text-white">
-          Stock Hub
+          Stock-Hub
         </h1>
         <button
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
