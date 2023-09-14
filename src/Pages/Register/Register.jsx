@@ -121,9 +121,15 @@ const Register = () => {
     >
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row w-full lg:w-8/12 bg-white rounded-xl mx-auto my-3 shadow-2xl overflow-hidden">
-          <div className="w-full lg:w-1/2 flex flex-col items-center justify-center text-center px-9 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black">
-          <img src="https://i.ibb.co/t4J05kK/stockHub.png" className="w-44" alt="StockHub Icon" />
-            <h1 className="text-3xl mt-2 mb-2 font-bold">Welcome to StockHub</h1>
+          <div className="w-full lg:w-1/2 flex flex-col items-center justify-center text-center p-10 lg:px-9 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black">
+            <img
+              src="https://i.ibb.co/t4J05kK/stockHub.png"
+              className="w-44"
+              alt="StockHub Icon"
+            />
+            <h1 className="text-3xl mt-2 mb-2 font-bold">
+              Welcome to StockHub
+            </h1>
             <div>
               <p className="font-thin">
                 Join our inventory revolution and experience the future of
@@ -136,7 +142,7 @@ const Register = () => {
             <h1 className="text-3xl mb-2 font-bold">Register</h1>
             <p className="font-thin ">Streamline Your Inventory - Join Today</p>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text font-semibold">Name</span>
                 </label>
@@ -145,23 +151,23 @@ const Register = () => {
                   placeholder="Name"
                   name="name"
                   {...register("name")}
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full"
                 />
               </div>
 
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text font-semibold">Upload Image</span>
                 </label>
                 <input
                   type="file"
                   accept=".jpg, .jpeg, .png"
-                  className="file-input file-input-bordered w-full max-w-xs"
+                  className="file-input file-input-bordered w-full"
                   name="photo"
                   {...register("photo")}
                 />
               </div>
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text font-semibold">Email</span>
                 </label>
@@ -170,10 +176,10 @@ const Register = () => {
                   placeholder="Email"
                   name="email"
                   {...register("email", { required: true })}
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full"
                 />
               </div>
-              <div className="form-control w-full max-w-xs relative">
+              <div className="form-control w-full relative">
                 <label className="label">
                   <span className="label-text font-semibold">Password</span>
                 </label>
@@ -182,7 +188,7 @@ const Register = () => {
                   placeholder="Password"
                   name="password"
                   {...register("password", { required: true, minLength: 6 })}
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full"
                 />
                 {errors.password?.type === "required" && (
                   <p className="text-red-500">Password is required</p>
@@ -201,7 +207,7 @@ const Register = () => {
                   )}
                 </div>
               </div>
-              <div className="form-control w-full max-w-xs relative">
+              <div className="form-control w-full relative">
                 <label className="label">
                   <span className="label-text font-semibold">
                     Confirm Password
@@ -210,7 +216,7 @@ const Register = () => {
                 <input
                   type={showConfirmPassword ? "text" : "password"}
                   placeholder="Confirm Password"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full"
                   name="confirmPassword"
                   {...register("confirmPassword", { required: true })}
                 />
@@ -241,7 +247,7 @@ const Register = () => {
               </div>
               <div className="divider mt-3 mb-3 font-semibold">OR</div>
             </form>
-            <SocialLogin></SocialLogin>
+            <SocialLogin buttonText="Register with Google"></SocialLogin>
           </div>
         </div>
       </div>

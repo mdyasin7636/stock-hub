@@ -4,7 +4,7 @@ import { socialLogin } from "../../features/auth/authSlices";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { useAddUserMutation } from "../../features/api/apiSlice";
-const SocialLogin = () => {
+const SocialLogin = ({ buttonText }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -34,11 +34,12 @@ const SocialLogin = () => {
     <div>
       <button
         onClick={handleGoggle}
-        className="border py-3 w-full bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-md text-white text-center font-semibold flex justify-center items-center">
+        className="border py-3 w-full bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-md text-white text-center font-semibold flex justify-center items-center"
+      >
         <span className="mr-1">
-          <FcGoogle size="16px" />
+          <FcGoogle size="18px" />
         </span>
-        Google
+        {buttonText}
       </button>
     </div>
   );
