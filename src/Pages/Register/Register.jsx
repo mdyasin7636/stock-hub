@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createUser } from "../../features/auth/authSlices";
 import { useAddUserMutation } from "../../features/api/apiSlice";
 import { useEffect, useState } from "react";
+import SocialLogin from "../SocilaLogin/SocialLogin";
 
 const imgToken = "99024dcf7d799d929c9d0ce7538940ec"
 const Register = () => {
@@ -55,7 +56,6 @@ const Register = () => {
     
                 try {
                     const response = await addUser({ email, name });
-                    console.log(response);
                     if (response.data?.insertedId) {
                         Swal.fire({
                             icon: 'success',
@@ -183,10 +183,8 @@ const Register = () => {
                                 </button>
                             </div>
                             <div className="divider mt-3 mb-3 font-semibold">OR</div>
-                            <button className="btn w-full bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-md text-white text-center font-semibold">
-                                Register With Google
-                            </button>
                         </form>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
