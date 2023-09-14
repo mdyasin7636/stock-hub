@@ -38,7 +38,7 @@ const SocialLogin = () => {
         <span className="mr-1">
           <FcGoogle size="16px" />
         </span>
-        Goggle
+        Google
       </button>
     </div>
   );

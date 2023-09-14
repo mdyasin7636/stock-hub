@@ -54,7 +54,8 @@ const Login = () => {
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row w-full lg:w-8/12 bg-white rounded-xl mx-auto my-3 shadow-2xl overflow-hidden">
           <div className="w-full lg:w-1/2 flex flex-col items-center justify-center text-center px-9 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black">
-            <h1 className="text-3xl mb-3 font-bold">Welcome to StockHub</h1>
+            <img src="https://i.ibb.co/t4J05kK/stockHub.png" className="w-44" alt="StockHub Icon" />
+            <h1 className="text-3xl mt-2 mb-2 font-bold">Welcome to StockHub</h1>
             <div>
               <p className="font-thin">
                 Join our inventory revolution and experience the future of
