@@ -1,17 +1,37 @@
 import { FcGoogle } from 'react-icons/fc'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { socialLogin } from '../../features/auth/authSlices';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import { useAddUserMutation } from '../../features/api/apiSlice';
+// import Swal from 'sweetalert2';
 const SocialLogin = () => {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
-    const location=useLocation()
+    const location = useLocation()
+    const [addUser] = useAddUserMutation()
     let from = location.state?.from?.pathname || "/";
-
-     const handleGoggle = () =>
-     {
-        dispatch(socialLogin({navigate,from}))
-     }
+    const {email,name}=useSelector((state)=> state.auth)
+    const handleGoggle = async () => {
+        try {
+            dispatch(socialLogin({ navigate, from }))
+            const response = await addUser({ email, name })
+            if (response.data.insertedId) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'User Added',
+                    text: 'User data has been successfully added!',
+                });
+            }
+        }
+        catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: error.message || 'An error occurred.',
+            });
+        }
+    }
     return (
         <div>
             <div className='flex items-center pt-4 space-x-1'>

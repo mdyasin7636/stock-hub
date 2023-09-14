@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { logIn } from "../../features/auth/authSlices";
 import SocialLogin from "../SocialLogIn/SocialLogin";
@@ -11,11 +11,9 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
-
     const onSubmit = data => {
         const { email, password, } = data
-        dispatch(logIn({ email, password }))
-        navigate(from, { replace: true });
+        dispatch(logIn({ email, password ,navigate,from}))
     }
 
 

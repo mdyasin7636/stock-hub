@@ -22,21 +22,25 @@ export const createUser = createAsyncThunk("auth/createUser", async ({ email, pa
       }
 })
 
-export const logIn = createAsyncThunk("auth/logIn", async ({ email, password }) => {
-      const data = await signInWithEmailAndPassword(auth, email, password)
+export const logIn = createAsyncThunk("auth/logIn", async ({ email, password, navigate, from }, { rejectWithValue }) => {
+      try {
+            const data = await signInWithEmailAndPassword(auth, email, password)
+            navigate(from, { replace: true });
+            return {
+                  email: data.user.email,
+                  name: data.user.displayName,
+            }
 
-      return {
-            email: data.user.email,
-            name: data.user.displayName
+      } catch (error) {
+            rejectWithValue(error.message)
       }
 })
 export const socialLogin = createAsyncThunk("auth/SocialLogin", async ({ navigate, from }, { rejectWithValue }) => {
       try {
             const provider = new GoogleAuthProvider();
             const data = await signInWithPopup(auth, provider)
-            console.log(data)
             navigate(from, { replace: true });
-      
+
             return {
                   email: data.user.email,
                   name: data.user.displayName,
@@ -58,6 +62,10 @@ const authSlice = createSlice({
             },
             toggleLoading: (state, action) => {
                   state.isLoading = action.payload
+            },
+            logOut: (state) => {
+                  state.name = ""
+                  state.email = ""
             }
       },
       extraReducers: (builder) => {
@@ -127,5 +135,5 @@ const authSlice = createSlice({
             })
       }
 })
-export const { setUser, toggleLoading } = authSlice.actions
+export const { setUser, toggleLoading, logOut} = authSlice.actions
 export default authSlice.reducer
