@@ -53,7 +53,7 @@ const Login = () => {
     >
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row w-full lg:w-8/12 bg-white rounded-xl mx-auto my-3 shadow-2xl overflow-hidden">
-          <div className="w-full lg:w-1/2 flex flex-col items-center justify-center text-center px-9 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black">
+          <div className="w-full lg:w-1/2 flex flex-col items-center justify-center text-center p-10 lg:px-9 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black">
             <img
               src="https://i.ibb.co/t4J05kK/stockHub.png"
               className="w-44"
