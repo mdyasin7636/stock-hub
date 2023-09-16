@@ -9,7 +9,7 @@ const SocialLogin = ({ buttonText }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const [addUser] = useAddUserMutation();
-  let from = location.state?.from?.pathname || "/";
+  let from = location.state?.from?.pathname || "/dashboard/Main";
   const { email, name } = useSelector((state) => state.auth);
   const handleGoggle = async () => {
     try {
