@@ -7,9 +7,8 @@ import toast, { Toaster } from "react-hot-toast";
 const CategoryModal = ({ isOpen, setIsOpen }) => {
       
       const { register, handleSubmit, reset } = useForm();
-      const [addCategory, { data: category, error }] = useAddCategoryMutation()
+      const [addCategory, { data: category}] = useAddCategoryMutation()
       console.log(category)
-      console.log(error)
       const handleCancel = () => {
             setIsOpen(false)
       }
