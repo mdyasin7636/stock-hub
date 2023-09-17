@@ -66,7 +66,7 @@ const Login = () => {
               <p className="font-thin">
                 Join our inventory revolution and experience the future of
                 product management. It&apos;s time to organize, optimize, and
-                elevate your business. Start your StockHub journey today.
+                elevate your business. Start your StockHub journey today!
               </p>
             </div>
           </div>
