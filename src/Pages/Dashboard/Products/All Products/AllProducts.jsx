@@ -4,7 +4,6 @@ import { FaRegEdit, FaRegEye, FaRegTrashAlt } from 'react-icons/fa';
 const AllProducts = () => {
       return (
             <div>
-                  <h3 className="text-3xl">Product is Here</h3>
                   <Table hoverable>
                 <Table.Head className='text-sm font-normal text-gray-400'>
                     <Table.HeadCell className="p-4">

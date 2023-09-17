@@ -1,7 +1,9 @@
 import { useForm } from 'react-hook-form';
+import { useGetCategoryQuery } from '../../../../features/api/apiSlice';
 
 const AddProduct = () => {
       const { register, handleSubmit } = useForm();
+      const { data } = useGetCategoryQuery()
       const onSubmit = data => console.log(data);
       return (
             <div>
@@ -40,12 +42,7 @@ const AddProduct = () => {
                                     </label>
                                     <select defaultValue="Choose Category" {...register("category", { required: true })} className="select select-bordered">
                                           <option disabled>Choose Category</option>
-                                          <option>Accessories</option>
-                                          <option>Computers</option>
-                                          <option>Jackets</option>
-                                          <option>T-Shirts</option>
-                                          <option>Shoes</option>
-                                          <option>Fruits</option>
+                                         {data?.map(item => <option key={item._id}>{item.categoryName}</option>)}
                                     </select>
                               </div>
                         </div>

@@ -14,7 +14,7 @@ const SocialLogin = ({ buttonText }) => {
   const handleGoggle = async () => {
     try {
       dispatch(socialLogin({ navigate, from }));
-      const response = await addUser({ email, name });
+      const response = await addUser({ email,name,role:"user"});
       if (response.data.insertedId) {
         Swal.fire({
           icon: "success",
