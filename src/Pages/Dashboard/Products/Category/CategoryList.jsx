@@ -7,17 +7,17 @@ const CategoryList = ({category}) => {
              
                   <Table.Body className="divide-y">
                   <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="p-4 text-center">
+                        <Table.Cell className="p-4">
                               <Checkbox />
                         </Table.Cell>
-                        <Table.Cell className="text-center">
+                        <Table.Cell className="">
                               {code}
                         </Table.Cell>
-                        <Table.Cell className='text-center'>
+                        <Table.Cell className=''>
                               {categoryName}
                         </Table.Cell>
                         <Table.Cell>
-                              <div className='flex gap-2 justify-center'>
+                              <div className='flex gap-2'>
                                     <FaRegEdit className='text-green-500 text-lg'></FaRegEdit>
                                     <FaRegTrashAlt className='text-red-500 text-lg'></FaRegTrashAlt>
                               </div>
