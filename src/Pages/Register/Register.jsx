@@ -31,7 +31,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const [disable, setDisable] = useState(true);
-  let from = location.state?.from?.pathname || "/";
+  let from = location.state?.from?.pathname || "/dashboard/Main";
   const [addUser] = useAddUserMutation();
   const password = useWatch({ control, name: "password" });
   const confirmPassword = useWatch({ control, name: "confirmPassword" });
@@ -67,10 +67,10 @@ const Register = () => {
       if (imgResponse.success) {
         const imgURL = imgResponse.data.display_url;
         const { email, name, password } = data;
-        dispatch(createUser({ email, password, name, photo: imgURL }));
+        dispatch(createUser({ email,password, name, photo: imgURL,}));
 
         try {
-          const response = await addUser({ email, name });
+          const response = await addUser({ email, name , role:"user"});
           if (response.data?.insertedId) {
             Swal.fire({
               icon: "success",

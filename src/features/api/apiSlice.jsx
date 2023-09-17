@@ -10,7 +10,14 @@ export const apiSlice=createApi({
               method:"POST",
               body:data
             })
+         }),
+         addCategory:builder.mutation({
+            query:(data)=>({
+               url:"/addCategory",
+               method:"POST",
+               body:data
+            })
          })
       })
 })
-export const {useAddUserMutation}=apiSlice
+export const {useAddUserMutation,useAddCategoryMutation}=apiSlice

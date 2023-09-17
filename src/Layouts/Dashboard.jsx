@@ -37,6 +37,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      
       <div className="text-end bg-black p-2">
         <p className="inline-block md:mr-72 font-bold text-white text-2xl color-change">
           Welcome to our Stock-Hub !
@@ -148,27 +149,26 @@ const Dashboard = () => {
                 <div className="dropdown-menu">
                   {/* Dropdown menu content */}
                   <ul>
-                    <Link
+                    <Link to="/dashboard/addProduct"
                       className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                     >
                       <AiFillFileAdd className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></AiFillFileAdd>
                       <span className="flex-1 ml-3 whitespace-nowrap">Create Products</span>
                     </Link>
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        to="/dashboard/allProducts"
                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                       >
                         All Products
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
+                      <Link to="/dashboard/category"
                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                       >
                         Category
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
