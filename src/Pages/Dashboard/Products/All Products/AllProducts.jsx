@@ -36,7 +36,7 @@ const AllProducts = () => {
                 </Table.Head>
                 <Table.Body className="divide-y">
                     <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="p-4">
+                        <Table.Cell className="">
                             <Checkbox />
                         </Table.Cell>
                         <Table.Cell>
