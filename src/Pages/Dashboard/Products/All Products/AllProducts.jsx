@@ -3,10 +3,10 @@ import { FaRegEdit, FaRegEye, FaRegTrashAlt } from 'react-icons/fa';
 
 const AllProducts = () => {
       return (
-            <div>
+            <div className='mt-12'>
                   <Table hoverable>
-                <Table.Head className='text-sm font-normal text-gray-400'>
-                    <Table.HeadCell className="p-4">
+                <Table.Head className='text-sm text-center bg-gray-300 font-normal text-gray-700'>
+                    <Table.HeadCell>
                         <Checkbox />
                     </Table.HeadCell>
                     <Table.HeadCell>
@@ -35,8 +35,8 @@ const AllProducts = () => {
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y">
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="">
+                    <Table.Row className="bg-white text-center dark:border-gray-700 dark:bg-gray-800">
+                        <Table.Cell>
                             <Checkbox />
                         </Table.Cell>
                         <Table.Cell>
