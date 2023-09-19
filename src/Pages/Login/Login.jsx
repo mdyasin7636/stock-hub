@@ -21,7 +21,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  let from = location.state?.from?.pathname || "/dashboard/Main";
+  let from = location.state?.from?.pathname || "/dashboard";
   const onSubmit = async (data) => {
     const { email, password } = data;
     try {

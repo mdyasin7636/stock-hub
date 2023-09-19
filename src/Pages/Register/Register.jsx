@@ -31,7 +31,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const [disable, setDisable] = useState(true);
-  let from = location.state?.from?.pathname || "/dashboard/Main";
+  let from = location.state?.from?.pathname || "/dashboard";
   const [addUser] = useAddUserMutation();
   const password = useWatch({ control, name: "password" });
   const confirmPassword = useWatch({ control, name: "confirmPassword" });
