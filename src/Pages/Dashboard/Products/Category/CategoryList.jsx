@@ -37,6 +37,8 @@ const CategoryList = ({ category }) => {
                   </Table.Body>
             </>
 
+            
+         
       );
 };
 
