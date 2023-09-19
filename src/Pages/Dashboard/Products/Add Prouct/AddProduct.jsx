@@ -72,7 +72,7 @@ const AddProduct = () => {
                                           </label>
                                           <textarea {...register("description", { required: true })} className="textarea shadow-md shadow-slate-400 bg-slate-100 textarea-bordered w-full max-w-xs h-32" placeholder="A few words..."></textarea>
                                     </div>
-                                    <input className='btn btn-sm mt-4 bg-violet-500 text-white' type="submit" value="Submit" />
+                                    <input className='btn btn-sm mt-4 bg-[#0086fe] text-white' type="submit" value="Submit" />
                               </div>
                               <div>
                                     <div className='card'>
@@ -80,13 +80,7 @@ const AddProduct = () => {
                                                 <p>Drag & Drop image uploading</p>
                                           </div>
                                           <div className='drag-area'>
-                                                <span className='select'>
-                                                      Drop images here
-                                                </span>
-                                                Drag & Drop image here or {" "}
-                                                <span className='select'>
-                                                      Browse
-                                                </span>
+                                                Drag & Drop image here {" "}
                                                 <input name='file' type='file' className='file' multiple></input>
                                           </div>
                                           <div className='container'>
