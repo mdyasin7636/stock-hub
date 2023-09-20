@@ -23,7 +23,15 @@ export const apiSlice=createApi({
                body:data
             }),
             invalidatesTags:["Categories"]
+         }),
+         deleteCategory:builder.mutation({
+            query:(id)=>({
+               url:`/allCategory/${id}`,
+               method:"DELETE"
+            }),
+            invalidatesTags:["Categories"]
          })
+         
       })
 })
-export const {useAddUserMutation,useAddCategoryMutation,useGetCategoryQuery}=apiSlice
+export const {useAddUserMutation,useAddCategoryMutation,useGetCategoryQuery,useDeleteCategoryMutation}=apiSlice

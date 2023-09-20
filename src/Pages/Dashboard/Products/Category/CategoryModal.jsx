@@ -2,35 +2,29 @@ import Modal from "../../../../ui/Modal";
 import { Button, Label, TextInput } from 'flowbite-react';
 import { useForm } from "react-hook-form";
 import { useAddCategoryMutation } from "../../../../features/api/apiSlice";
-import toast, { Toaster } from "react-hot-toast";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const CategoryModal = ({ isOpen, setIsOpen }) => {
-      
+
       const { register, handleSubmit, reset } = useForm();
-      const [addCategory, { data: category}] = useAddCategoryMutation()
+      const [addCategory, { data: category,isSuccess }] = useAddCategoryMutation()
       console.log(category)
       const handleCancel = () => {
             setIsOpen(false)
       }
-      const onSubmit = async (data) => {
+      const onSubmit = (data) => {
             const { code, categoryName } = data
-            try {
-                  const response = await addCategory({ code:parseInt(code), categoryName })
-                  if (response.data?.insertedId) {
-                        toast.success('Category Added Successfully!')
-                  } else {
-                        toast.error("Category does not added")
-                  }
-            } catch (error) {
-                  toast.error(error)
-            }
+            addCategory({ code: parseInt(code), categoryName })
             reset()
             setIsOpen(false)
-
       };
+      useEffect(() => {
+            if (isSuccess) toast.success("Category Added Successfully!")
+      }, [isSuccess])
       return (
             <div>
-                  <Toaster/>
+                  
                   <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Create Category">
                         <form onSubmit={handleSubmit(onSubmit)} className="flex max-w-md flex-col gap-4 pt-5">
                               <div>
