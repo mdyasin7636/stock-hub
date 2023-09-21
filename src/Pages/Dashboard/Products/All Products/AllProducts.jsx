@@ -1,78 +1,70 @@
-import { Checkbox, Table } from 'flowbite-react';
+
 import { FaRegEdit, FaRegEye, FaRegTrashAlt } from 'react-icons/fa';
 
 const AllProducts = () => {
-      return (
-            <div>
-                  <Table hoverable>
-                <Table.Head className='text-sm font-normal text-gray-400'>
-                    <Table.HeadCell className="p-4">
-                        <Checkbox />
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        Image
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        Name
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        Code
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        Brand
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        Category
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        Price
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        Quantity
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        Action
-                    </Table.HeadCell>
-                </Table.Head>
-                <Table.Body className="divide-y">
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="">
-                            <Checkbox />
-                        </Table.Cell>
-                        <Table.Cell>
-                            Apple MacBook
-                        </Table.Cell>
-                        <Table.Cell>
-                            Sunglasses
-                        </Table.Cell>
-                        <Table.Cell>
-                            69311349
-                        </Table.Cell>
-                        <Table.Cell>
-                            Adidas
-                        </Table.Cell>
-                        <Table.Cell>
-                            Shoes
-                        </Table.Cell>
-                        <Table.Cell>
-                            25.00
-                        </Table.Cell>
-                        <Table.Cell>
-                            102 pc
-                        </Table.Cell>
-                        <Table.Cell>
-                            <div className='flex gap-2'>
-                                <FaRegEye className='text-blue-500 text-lg'></FaRegEye>
-                                <FaRegEdit className='text-green-500 text-lg'></FaRegEdit>
-                                <FaRegTrashAlt className='text-red-500 text-lg'></FaRegTrashAlt>
-                            </div>
-                        </Table.Cell>
-                    </Table.Row>
-
-                </Table.Body>
-            </Table>
+    return (
+        <div className='mt-12'>
+            <div className="overflow-x-auto">
+                <table className="table">
+                    {/* head */}
+                    <thead className='bg-gray-300 text-gray-800 w-full'>
+                        <tr>
+                            <th>
+                                <label>
+                                    <input type="checkbox" className="checkbox" />
+                                </label>
+                            </th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Brand</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody className='text-gray-500'>
+                        <tr>
+                            <td>
+                                <label>
+                                    <input type="checkbox" className="checkbox" />
+                                </label>
+                            </td>
+                            <td>
+                                <h2>Apple macBook</h2>
+                            </td>
+                            <td>
+                                <h2>Sunglasses</h2>
+                            </td>
+                            <td>
+                                <p>69311349</p>
+                            </td>
+                            <td>
+                                <p>Adidas</p>
+                            </td>
+                            <td>
+                                <p>Shoes</p>
+                            </td>
+                            <td>
+                                <p>$25.00</p>
+                            </td>
+                            <td>
+                                <p>102pc</p>
+                            </td>
+                            <td>
+                                <div className='flex gap-2 justify-center'>
+                                    <FaRegEye className='text-blue-500 text-lg'></FaRegEye>
+                                    <FaRegEdit className='text-green-500 text-lg'></FaRegEdit>
+                                    <FaRegTrashAlt className='text-red-500 text-lg'></FaRegTrashAlt>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-      );
+        </div>
+    );
 };
 
 export default AllProducts;
