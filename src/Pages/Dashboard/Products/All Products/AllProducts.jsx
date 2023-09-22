@@ -4,13 +4,13 @@ import { FaRegEdit, FaRegEye, FaRegTrashAlt } from 'react-icons/fa';
 const AllProducts = () => {
       return (
             <div className='mt-12'>
-                  <Table hoverable>
+                  <Table className='w-full' hoverable>
                 <Table.Head className='text-sm text-center bg-gray-300 font-normal text-gray-700'>
                     <Table.HeadCell>
                         <Checkbox />
                     </Table.HeadCell>
                     <Table.HeadCell>
-                        Image
+                        image
                     </Table.HeadCell>
                     <Table.HeadCell>
                         Name

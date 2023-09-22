@@ -27,7 +27,7 @@ const Dashboard = () => {
   const menus = [
     { name: "Add Product", link: "/dashboard/addProduct", icon: MdOutlineLibraryAdd },
     { name: "All Products", link: "/dashboard/allProducts", icon: MdOutlineLibraryAddCheck },
-    { name: "Add Category", link: "", icon: BiCategory },
+    { name: "Category", link: "/dashboard/category", icon: BiCategory },
     { name: "Users", link: "", icon: HiOutlineUsers, margin: true },
     { name: "Analytics", link: "", icon: TbReportAnalytics },
     { name: "Payment", link: "", icon: CiMoneyCheck1 },

@@ -1,11 +1,44 @@
 import { useForm } from 'react-hook-form';
 import { useGetCategoryQuery } from '../../../../features/api/apiSlice';
 import './AddProduct.css'
+import { useCallback, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 
 const AddProduct = () => {
       const { register, handleSubmit } = useForm();
       const { data } = useGetCategoryQuery()
-      const onSubmit = data => console.log(data);
+      const [preview, setPreview] = useState(null);
+      const onDrop = useCallback((acceptedFiles) => {
+            const file = new FileReader;
+
+            file.onload = function () {
+                  setPreview(file.result);
+            }
+
+            file.readAsDataURL(acceptedFiles[0])
+      }, [setPreview])
+
+
+      const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({
+            onDrop
+      });
+      const onSubmit = async (data) => {
+            console.log(data)
+            if (typeof acceptedFiles[0] === 'undefined') return;
+
+            const formData = new FormData();
+
+            formData.append('file', acceptedFiles[0]);
+            formData.append('upload_preset', 'lkznvdd1');
+            formData.append('api_key', "757146674475652");
+
+            const results = await fetch('https://api.cloudinary.com/v1_1/dpc5zttky/image/upload', {
+                  method: 'POST',
+                  body: formData
+            }).then(r => r.json());
+
+            console.log('results', results.url);
+      };
       return (
             <div className='ml-16 mt-16'>
                   <form onSubmit={handleSubmit(onSubmit)}>
@@ -72,31 +105,38 @@ const AddProduct = () => {
                                           </label>
                                           <textarea {...register("description", { required: true })} className="textarea shadow-md shadow-slate-400 bg-slate-100 textarea-bordered w-full max-w-xs h-32" placeholder="A few words..."></textarea>
                                     </div>
+
                                     <input className='btn btn-sm mt-4 bg-[#0086fe] text-white' type="submit" value="Submit" />
                               </div>
                               <div>
                                     <div className='card'>
                                           <div className='top'>
-                                                <p>Drag & Drop image uploading</p>
+                                                <p>Drag & Drop image</p>
                                           </div>
-                                          <div className='drag-area'>
-                                                Drag & Drop image here {" "}
-                                                <input name='file' type='file' className='file' multiple></input>
-                                          </div>
-                                          <div className='container'>
-                                                <div className='image'>
-                                                      <span className='delete'>&times;</span>
+                                          <div className='drag-area px-5'>
+                                                <div {...getRootProps()}>
+                                                      <input {...getInputProps()} />
+                                                      {
+                                                            preview ? < div className='container'>
+                                                                  <div className='image'>
+                                                                        <p className="mb-5">
+                                                                              <img src={preview} alt="Upload preview" />
+                                                                        </p>
+                                                                  </div>
+                                                            </div> :
+                                                                  isDragActive ?
+                                                                        <p>Drop the files here ...</p> :
+                                                                        <p className='text-center'>Drag and drop file here, <br /> or click to select files</p>
+                                                      }
                                                 </div>
-                                                <img src="" alt="" />
                                           </div>
-                                          <button type='button'>
-                                                Upload
-                                          </button>
+
+
                                     </div>
                               </div>
                         </div>
-                  </form>
-            </div>
+                  </form >
+            </div >
       );
 };
 
