@@ -56,6 +56,7 @@ import Dashboard from "../Layouts/Dashboard";
 import Category from "../Pages/Dashboard/Products/Category/Category";
 import AllProducts from './../Pages/Dashboard/Products/All Products/AllProducts';
 import AddProduct from "../Pages/Dashboard/Products/Add Prouct/AddProduct";
+import EditProductModal from "../Pages/Dashboard/Products/All Products/EditProductModal";
 
 
 export const router = createBrowserRouter([
@@ -90,6 +91,10 @@ export const router = createBrowserRouter([
       {
         path:"addProduct",
         element: <AddProduct></AddProduct>
+      },
+      {
+        path:"editProduct/:id",
+        element:<EditProductModal></EditProductModal>
       }
     ],
   },

@@ -1,5 +1,5 @@
 
-import { Checkbox, Table } from 'flowbite-react';
+import { Table } from 'flowbite-react';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { useDeleteCategoryMutation } from '../../../../features/api/apiSlice';
 import { useEffect } from 'react';
@@ -19,9 +19,6 @@ const CategoryList = ({ category }) => {
             <>
                   <Table.Body className="divide-y">
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                              <Table.Cell className="p-4 text-center">
-                                    <Checkbox />
-                              </Table.Cell>
                               <Table.Cell className="text-center">
                                     {code}
                               </Table.Cell>
