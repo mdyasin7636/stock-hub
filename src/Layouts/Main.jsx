@@ -1,13 +1,11 @@
-import { useLocation } from "react-router-dom";
-import { Outlet } from "react-router-dom";
-import Login from "../Pages/Login/Login";
+import { Outlet } from 'react-router-dom';
 
 const Main = () => {
-  const location = useLocation();
-
-  const isRootPath = location.pathname === "/";
-
-  return <div>{isRootPath ? <Login /> : <Outlet />}</div>;
+  return (
+    <div>
+      <Outlet/>
+    </div>
+  );
 };
 
 export default Main;

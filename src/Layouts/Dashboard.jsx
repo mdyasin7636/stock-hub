@@ -17,7 +17,15 @@ import auth from "../firebase/firebase.config";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(true);
-  const [submenuOpen, setSubmenuOpen] = useState(false);
+
+  const [submenuOpen, setSubmenuOpen] = useState({});
+
+  const handleSubMenuToggle = (index) => {
+    setSubmenuOpen((prevSubmenuOpen) => ({
+      ...prevSubmenuOpen,
+      [index]: !prevSubmenuOpen[index],
+    }));
+  };
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,7 +48,17 @@ const Dashboard = () => {
         { title: "Category", link: "/dashboard/category" },
       ],
     },
-    { title: "Users", link: "", icon: <HiOutlineUsers />, spacing: true },
+    {
+      title: "Purchases",
+      link: "",
+      icon: <HiOutlineUsers />,
+      spacing: true,
+      submenu: true,
+      submenuItems: [
+        { title: "Create Purchase", link: "/dashboard/createPurchase" },
+        { title: "Purchase History", link: "/dashboard/purchaseHistory" },
+      ],
+    },
     { title: "Analytics", link: "", icon: <TbReportAnalytics /> },
     { title: "Payment", link: "", icon: <CiMoneyCheck1 /> },
     { title: "Saved", link: "", icon: <CiSaveDown2 />, spacing: true },
@@ -71,12 +89,12 @@ const Dashboard = () => {
         </div>
         <div>
           {menus.map((menu, index) => (
-            <>
+            <div key={index}>
               <Link
                 to={menu?.link}
-                key={index}
-                className={`flex items-center text-sm gap-x-4 font-medium p-2 mt-3 hover:bg-gray-800 rounded-md ${menu.spacing ? "mt-8" : "mt-2"
-                  }`}
+                className={`flex items-center text-sm gap-x-4 font-medium p-2 mt-3 hover:bg-gray-800 rounded-md ${
+                  menu.spacing ? "mt-8" : "mt-2"
+                }`}
               >
                 <span className="text-2xl block float-left">
                   {menu.icon ? menu.icon : <RxDashboard />}
@@ -89,17 +107,19 @@ const Dashboard = () => {
                 </span>
                 {menu.submenu && open && (
                   <BsChevronDown
-                    className={`text-xl ${submenuOpen && "rotate-180"}`}
-                    onClick={() => setSubmenuOpen(!submenuOpen)}
+                    className={`text-xl ${
+                      submenuOpen[index] ? "rotate-180" : ""
+                    }`}
+                    onClick={() => handleSubMenuToggle(index)}
                   />
                 )}
               </Link>
-              {menu.submenu && submenuOpen && open && (
+              {menu.submenu && submenuOpen[index] && open && (
                 <div>
-                  {menu.submenuItems.map((submenuItem, index) => (
+                  {menu.submenuItems.map((submenuItem, submenuIndex) => (
                     <Link
                       to={submenuItem?.link}
-                      key={index}
+                      key={submenuIndex}
                       className="flex items-center text-sm gap-x-4 font-medium p-2 mt-2 px-5 hover:bg-gray-800 rounded-md cursor-pointer "
                     >
                       {submenuItem.title}
@@ -107,7 +127,7 @@ const Dashboard = () => {
                   ))}
                 </div>
               )}
-            </>
+            </div>
           ))}
           <Link
             className="flex items-center text-sm gap-x-4 font-medium p-2 mt-3 hover:bg-gray-800 rounded-md"
