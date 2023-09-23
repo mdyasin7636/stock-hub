@@ -233,7 +233,7 @@ const Register = () => {
               </div>
               <div className="label font-semibold">
                 Already Have an Account?
-                <Link className="font-bold" to="/login">
+                <Link className="font-bold" to="/">
                   Login
                 </Link>
               </div>

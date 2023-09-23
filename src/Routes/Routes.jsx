@@ -56,6 +56,8 @@ import Dashboard from "../Layouts/Dashboard";
 import Category from "../Pages/Dashboard/Products/Category/Category";
 import AllProducts from './../Pages/Dashboard/Products/All Products/AllProducts';
 import AddProduct from "../Pages/Dashboard/Products/Add Prouct/AddProduct";
+import CreatePurchase from "../Pages/Dashboard/Purchases/CreatePurchase/CreatePurchase";
+import PurchaseHistory from "../Pages/Dashboard/Purchases/PurchaseHistory/PurchaseHistory";
 
 
 export const router = createBrowserRouter([
@@ -65,7 +67,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage/>,
     children: [
       {
-        path: "login",
+        path: "/",
         element: <Login/>
       },
       {
@@ -80,16 +82,24 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage/>,
     children: [
       {
-        path:"category",
-        element: <Category></Category>
+        path:"addProduct",
+        element: <AddProduct/>
       },
       {
         path:"allProducts",
-        element: <AllProducts></AllProducts>
+        element: <AllProducts/>
       },
       {
-        path:"addProduct",
-        element: <AddProduct></AddProduct>
+        path:"category",
+        element: <Category/>
+      },
+      {
+        path: "createPurchase",
+        element: <CreatePurchase/>
+      },
+      {
+        path: "purchaseHistory",
+        element: <PurchaseHistory/>
       }
     ],
   },

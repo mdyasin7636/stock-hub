@@ -34,9 +34,9 @@ const SocialLogin = ({ buttonText }) => {
     <div>
       <button
         onClick={handleGoggle}
-        className="border py-3 w-full bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-md text-white text-center font-semibold flex justify-center items-center"
+        className="btn w-full bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-md text-white"
       >
-        <span className="mr-1">
+        <span>
           <FcGoogle size="18px" />
         </span>
         {buttonText}

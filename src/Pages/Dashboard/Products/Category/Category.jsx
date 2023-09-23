@@ -22,7 +22,7 @@ const Category = () => {
             content = data?.map(item => <CategoryList category={item} key={item._id}></CategoryList>)
       }
       return (
-            <div>
+            <div className="w-[100%] block">
                   <Button onClick={() => setIsOpen(!isOpen)}
                         gradientMonochrome="info">
                         Info
