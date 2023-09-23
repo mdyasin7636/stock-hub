@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CategoryModal from "./CategoryModal";
-import { Button, Checkbox, Table } from "flowbite-react";
+import { Button, Table } from "flowbite-react";
 import { useGetCategoryQuery } from "../../../../features/api/apiSlice";
 import CategoryList from "./CategoryList";
 
@@ -22,32 +22,36 @@ const Category = () => {
             content = data?.map(item => <CategoryList category={item} key={item._id}></CategoryList>)
       }
       return (
-            <div className="w-[100%] block">
-                  <Button onClick={() => setIsOpen(!isOpen)}
-                        gradientMonochrome="info">
-                        Info
-                  </Button>
-                  <CategoryModal isOpen={isOpen} setIsOpen={setIsOpen}></CategoryModal>
-                  <Table hoverable>
-                        <Table.Head className='text-sm font-normal text-gray-400'>
-                              <Table.HeadCell className="p-4">
-                                    <Checkbox />
-                              </Table.HeadCell>
-                              <Table.HeadCell>
-                                    Category Code
-                              </Table.HeadCell>
-                              <Table.HeadCell>
-                                    Category Name
-                              </Table.HeadCell>
-                              <Table.HeadCell>
-                                    Action
-                              </Table.HeadCell>
-                        </Table.Head>
-                        {
-                              content
-                        }
+            <div >
 
-                  </Table>
+                  <CategoryModal isOpen={isOpen} setIsOpen={setIsOpen}></CategoryModal>
+                  <div className="w-full ">
+
+                        <Button className="relative -right-72 top-2 z-10 my-2" onClick={() => setIsOpen(!isOpen)}
+                              gradientMonochrome="info">
+                              Add Category
+                        </Button>
+
+                        <Table hoverable>
+                              <Table.Head className='text-sm font-normal
+                               text-gray-400'>
+
+                                    <Table.HeadCell>
+                                          Category Code
+                                    </Table.HeadCell>
+                                    <Table.HeadCell>
+                                          Category Name
+                                    </Table.HeadCell>
+                                    <Table.HeadCell>
+                                          Action
+                                    </Table.HeadCell>
+                              </Table.Head>
+                              {
+                                    content
+                              }
+
+                        </Table>
+                  </div>
 
             </div>
       );

@@ -1,69 +1,63 @@
+import { Table } from 'flowbite-react';
 
-import { FaRegEdit, FaRegEye, FaRegTrashAlt } from 'react-icons/fa';
+import AllProductList from './AllProductList';
+import CircleLoader from "react-spinners/CircleLoader";
+import { useGetProductsQuery } from '../../../../features/api/apiSlice';
+
 
 const AllProducts = () => {
+    const { data, isError, isLoading, error } = useGetProductsQuery()
+    const override = {
+        display: "block",
+        margin: "0 auto",
+        borderColor: "red",
+      };
+    let content = null
+    if (!isLoading && isError) {
+        content = <h3 className="text-red-500">{error}</h3>
+    }
+    if (!isLoading && !isError && data.length === 0) {
+        content = <h3 className="text-red-500">There is no Product</h3>
+    }
+    if (!isLoading && !isError && data.length > 0) {
+        content = data?.map(item => <AllProductList product={item} key={item._id}></AllProductList>)
+    }
     return (
         <div className='mt-12'>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead className='bg-gray-300 text-gray-800 w-full'>
-                        <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Code</th>
-                            <th>Brand</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody className='text-gray-500'>
-                        <tr>
-                            <td>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </td>
-                            <td>
-                                <h2>Apple macBook</h2>
-                            </td>
-                            <td>
-                                <h2>Sunglasses</h2>
-                            </td>
-                            <td>
-                                <p>69311349</p>
-                            </td>
-                            <td>
-                                <p>Adidas</p>
-                            </td>
-                            <td>
-                                <p>Shoes</p>
-                            </td>
-                            <td>
-                                <p>$25.00</p>
-                            </td>
-                            <td>
-                                <p>102pc</p>
-                            </td>
-                            <td>
-                                <div className='flex gap-2 justify-center'>
-                                    <FaRegEye className='text-blue-500 text-lg'></FaRegEye>
-                                    <FaRegEdit className='text-green-500 text-lg'></FaRegEdit>
-                                    <FaRegTrashAlt className='text-red-500 text-lg'></FaRegTrashAlt>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            {
+                isLoading ? <CircleLoader cssOverride={override} color="#36d7b7"/>
+                : <Table className='w-full' hoverable>
+                    <Table.Head className='text-sm text-center bg-gray-300 font-normal text-gray-700'>
+                        <Table.HeadCell>
+                            image
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Name
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Code
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Brand
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Category
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Price
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Quantity
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Action
+                        </Table.HeadCell>
+                    </Table.Head>
+                    {content}
+                </Table>
+            }
         </div>
+
     );
 };
 

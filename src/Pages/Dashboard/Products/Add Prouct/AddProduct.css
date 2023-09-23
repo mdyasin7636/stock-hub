@@ -13,17 +13,17 @@
     font-weight: bold;
     color: #0086fe;
 }
-.card button{
+/* .card button{
     outline: 0;
     border: 0;
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
     font-weight: 400;
-    padding: 8px 13px;
-    width: 100%;
+    padding: 5px 5px;
+    width: 30%;
     background: #0086fe;
-}
+} */
 
 .card .drag-area{
     height: 150px;
