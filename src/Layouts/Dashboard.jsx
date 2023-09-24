@@ -18,9 +18,12 @@ import auth from "../firebase/firebase.config";
 const Dashboard = () => {
   const [open, setOpen] = useState(true);
 
-  const [submenuOpen, setSubmenuOpen] = useState({});
+  const [submenuOpen, setSubmenuOpen] = useState({
+    1: false,
+    2: false,
+  });
 
-  const handleSubMenuToggle = (index) => {
+  const toggleSubMenu = (index) => {
     setSubmenuOpen((prevSubmenuOpen) => ({
       ...prevSubmenuOpen,
       [index]: !prevSubmenuOpen[index],
@@ -67,22 +70,26 @@ const Dashboard = () => {
   return (
     <div className="flex">
       <div
-        className={`text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black min-h-screen p-5 pt-8 relative duration-300 ${open ? "w-60" : "w-20"
-          }`}
+        className={`text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black min-h-screen p-5 pt-8 relative duration-300 ${
+          open ? "w-60" : "w-20"
+        }`}
       >
         <BsArrowLeftCircle
-          className={`text-2xl bg-white text-black rounded-full absolute -right-2.5 to-9 border border-black cursor-pointer ${!open && "rotate-180"
-            }`}
+          className={`text-2xl bg-white text-black rounded-full absolute -right-2.5 to-9 border border-black cursor-pointer ${
+            !open && "rotate-180"
+          }`}
           onClick={() => setOpen(!open)}
         />
         <div className="inline-flex">
           <BsTriangle
-            className={`text-3xl cursor-pointer block float-left mr-2 duration-500 ${open && "rotate-[360deg]"
-              }`}
+            className={`text-3xl cursor-pointer block float-left mr-2 duration-500 ${
+              open && "rotate-[360deg]"
+            }`}
           />
           <h1
-            className={`origin-left font-medium text-2xl duration-300 ${!open && "scale-0"
-              }`}
+            className={`origin-left font-medium text-2xl duration-300 ${
+              !open && "scale-0"
+            }`}
           >
             StockHub
           </h1>
@@ -95,13 +102,15 @@ const Dashboard = () => {
                 className={`flex items-center text-sm gap-x-4 font-medium p-2 mt-3 hover:bg-gray-800 rounded-md ${
                   menu.spacing ? "mt-8" : "mt-2"
                 }`}
+                onClick={() => menu.submenu && toggleSubMenu(index)}
               >
                 <span className="text-2xl block float-left">
                   {menu.icon ? menu.icon : <RxDashboard />}
                 </span>
                 <span
-                  className={`text-base font-medium flex-1 duration-300 ${!open && "hidden"
-                    }`}
+                  className={`text-base font-medium flex-1 duration-300 ${
+                    !open && "hidden"
+                  }`}
                 >
                   {menu.title}
                 </span>
@@ -110,7 +119,6 @@ const Dashboard = () => {
                     className={`text-xl ${
                       submenuOpen[index] ? "rotate-180" : ""
                     }`}
-                    onClick={() => handleSubMenuToggle(index)}
                   />
                 )}
               </Link>
@@ -137,8 +145,9 @@ const Dashboard = () => {
               <RiSettings4Line />
             </span>
             <span
-              className={`text-base font-medium flex-1 duration-300 ${!open && "hidden"
-                }`}
+              className={`text-base font-medium flex-1 duration-300 ${
+                !open && "hidden"
+              }`}
             >
               Logout
             </span>
