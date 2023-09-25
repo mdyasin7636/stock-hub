@@ -25,7 +25,7 @@ const CreatePurchase = () => {
             </div>
           </div>
           {/* Card */}
-          <div className="">
+          <div className="grid grid-cols-3">
             <div className="w-48 group shadow-2xl mt-5 ml-3 rounded-md overflow-hidden">
               <div className="relative">
                 <img
