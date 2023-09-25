@@ -23,7 +23,7 @@ const AllProducts = () => {
         content = data?.map(item => <AllProductList product={item} key={item._id}></AllProductList>)
     }
     return (
-        <div className='mt-12'>
+        <div className='mt-28 mx-10'>
             {
                 isLoading ? <CircleLoader cssOverride={override} color="#36d7b7"/>
                 : <Table className='w-full' hoverable>

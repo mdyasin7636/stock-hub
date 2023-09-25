@@ -1,3 +1,5 @@
+import { PiPlusThin } from "react-icons/pi";
+
 const CreatePurchase = () => {
   return (
     <div className="grid grid-cols-7 gap-4">
@@ -21,7 +23,22 @@ const CreatePurchase = () => {
               </select>
             </div>
           </div>
-          Show Products Here
+          {/* Card */}
+          <div className="">
+          <div className="w-48 group shadow-2xl mt-5 ml-3">
+            <div className="relative overflow-hidden">
+              <img src="https://i.ibb.co/QbKT5Zn/redmi-note-13-pro.png" alt="" />
+              <div className="absolute h-full w-full bg-black/40 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <PiPlusThin className="text-8xl text-white"/>
+              </div>
+              <div className="ml-2 my-2">
+            <h1 className="text-lg font-bold">Redmi Note 13 Pro</h1>
+            <p className="text-xl font-semibold">$300</p>
+            </div>
+            </div>
+            
+          </div>
+          </div>
         </div>
       </div>
       <div className="col-span-2">
