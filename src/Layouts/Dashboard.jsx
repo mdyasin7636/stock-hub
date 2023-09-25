@@ -154,7 +154,7 @@ const Dashboard = () => {
           </Link>
         </div>
       </div>
-      <div className="p-7">
+      <div className="flex-1">
         <Outlet />
       </div>
     </div>
