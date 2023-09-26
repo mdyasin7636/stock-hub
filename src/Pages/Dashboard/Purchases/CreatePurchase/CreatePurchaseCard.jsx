@@ -12,7 +12,6 @@ const CreatePurchaseCard = ({ product }) => {
                   <div className="relative">
                         <img
                               className="p-4"
-                              //h-36 w-36 mx-auto object-fill
                               src={photo}
                               alt=""
                         />

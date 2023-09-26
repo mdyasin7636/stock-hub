@@ -58,8 +58,6 @@ const CreatePurchase = () => {
       </div>
       <div className="col-span-2">
         {cartItems.length > 0 ? cartItems?.map(item => <CartItems key={item._id} product={item}></CartItems>) : <h3>There is no product</h3>}
-
-        
         <div className="flex justify-center items-end gap-4 mt-2">
           <p className="text-slate-400 font-medium text-sm">Sub Total</p>
           <p className="text-slate-400 font-medium text-sm">$0</p>
