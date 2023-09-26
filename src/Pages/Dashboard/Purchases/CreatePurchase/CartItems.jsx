@@ -17,7 +17,7 @@ const CartItems = ({ product }) => {
       return (
             <div>
                   <div className="bg-gray-100 p-4">
-                        <div className="flex justify-center items-center gap-4 mt-5">
+                        <div className="flex justify-center items-center gap-10 mt-5">
                               <div>
                                     <button onClick={increaseItem} className="text-lg text-center">+</button>
                                     <p className="text-base text-center">{quantity}</p>
