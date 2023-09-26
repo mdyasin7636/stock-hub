@@ -3,11 +3,18 @@ import CreatePurchaseCard from "./CreatePurchaseCard";
 import { useGetProductsQuery } from "../../../../features/api/apiSlice";
 import { FadeLoader } from 'react-spinners';
 import CartItems from "./CartItems";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getCartTotal } from "../../../../features/cart/cartSlice";
 
 const CreatePurchase = () => {
   const { data, isError, isLoading, error } = useGetProductsQuery()
-  const { cartItems } = useSelector(state => state.cart)
+  const { cartItems, quantityAmount } = useSelector(state => state.cart)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getCartTotal())
+  }, [dispatch, cartItems])
   const override = {
     display: "flex",
     justifyContent: "center",
@@ -28,6 +35,8 @@ const CreatePurchase = () => {
   if (!isLoading && !isError && data.length > 0) {
     content = data?.map(item => <CreatePurchaseCard key={item._id} product={item}></CreatePurchaseCard>)
   }
+
+
   return (
     <div className="grid grid-cols-7 bg-gray-200 h-screen">
       <div className="col-span-5 ">
@@ -60,7 +69,7 @@ const CreatePurchase = () => {
         {cartItems.length > 0 ? cartItems?.map(item => <CartItems key={item._id} product={item}></CartItems>) : <h3>There is no product</h3>}
         <div className="flex justify-center items-end gap-4 mt-2">
           <p className="text-slate-400 font-medium text-sm">Sub Total</p>
-          <p className="text-slate-400 font-medium text-sm">$0</p>
+          <p className="text-slate-400 font-medium text-sm">${quantityAmount}</p>
         </div>
         <div className="flex justify-evenly items-end gap-4 mt-2">
           <p className="text-slate-400 font-medium text-sm">Tax</p>
@@ -69,7 +78,7 @@ const CreatePurchase = () => {
         <hr className="mt-2" />
         <div className="flex justify-evenly items-end gap-4 mt-2">
           <p className="text-lg font-bold">Total</p>
-          <p className="text-lg font-bold">$300.00</p>
+          <p className="text-lg font-bold">${quantityAmount}</p>
         </div>
         <div className="text-end mt-4">
           <button className="btn btn-sm text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black font-semibold">
