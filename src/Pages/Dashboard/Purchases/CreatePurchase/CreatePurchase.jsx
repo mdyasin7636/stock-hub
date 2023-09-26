@@ -38,9 +38,9 @@ const CreatePurchase = () => {
 
 
   return (
-    <div className="grid grid-cols-7 bg-gray-200 h-screen">
-      <div className="col-span-5 ">
-        <div className="p-4 bg-gray-200">
+    <div className="grid grid-cols-7 bg-gray-200">
+      <div className="col-span-5">
+        <div className="p-4">
           <div className="flex justify-between text-center">
             <div className="w-full">
               <input
@@ -65,7 +65,7 @@ const CreatePurchase = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-2">
+      <div className="col-span-2 bg-gray-100">
         {cartItems.length > 0 ? cartItems?.map(item => <CartItems key={item._id} product={item}></CartItems>) : <h3>There is no product</h3>}
         <div className="flex justify-center items-end gap-4 mt-2">
           <p className="text-slate-400 font-medium text-sm">Sub Total</p>
