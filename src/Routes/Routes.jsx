@@ -10,6 +10,7 @@ import AddProduct from "../Pages/Dashboard/Products/Add Prouct/AddProduct";
 import CreatePurchase from "../Pages/Dashboard/Purchases/CreatePurchase/CreatePurchase";
 import PurchaseHistory from "../Pages/Dashboard/Purchases/PurchaseHistory/PurchaseHistory";
 import EditProductModal from "../Pages/Dashboard/Products/All Products/EditProductModal";
+import ViewProduct from "../Pages/Dashboard/Products/All Products/ViewProduct";
 
 
 export const router = createBrowserRouter([
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
       {
         path: "purchaseHistory",
         element: <PurchaseHistory/>
+      },
+      {
+        path: 'viewProduct',
+        element: <ViewProduct></ViewProduct>
       }
     ],
   },

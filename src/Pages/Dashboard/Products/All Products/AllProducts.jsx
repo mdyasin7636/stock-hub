@@ -11,7 +11,7 @@ const AllProducts = () => {
         display: "block",
         margin: "0 auto",
         borderColor: "red",
-      };
+    };
     let content = null
     if (!isLoading && isError) {
         content = <h3 className="text-red-500">{error}</h3>
@@ -24,37 +24,38 @@ const AllProducts = () => {
     }
     return (
         <div className='mt-28 mx-10'>
+            <h2 className="text-center mb-6 font-semibold text-2xl">All Products</h2>
             {
-                isLoading ? <CircleLoader cssOverride={override} color="#36d7b7"/>
-                : <Table className='w-full' hoverable>
-                    <Table.Head className='text-sm text-center bg-gray-300 font-normal text-gray-700'>
-                        <Table.HeadCell>
-                            image
-                        </Table.HeadCell>
-                        <Table.HeadCell>
-                            Name
-                        </Table.HeadCell>
-                        <Table.HeadCell>
-                            Code
-                        </Table.HeadCell>
-                        <Table.HeadCell>
-                            Brand
-                        </Table.HeadCell>
-                        <Table.HeadCell>
-                            Category
-                        </Table.HeadCell>
-                        <Table.HeadCell>
-                            Price
-                        </Table.HeadCell>
-                        <Table.HeadCell>
-                            Quantity
-                        </Table.HeadCell>
-                        <Table.HeadCell>
-                            Action
-                        </Table.HeadCell>
-                    </Table.Head>
-                    {content}
-                </Table>
+                isLoading ? <CircleLoader cssOverride={override} color="#36d7b7" />
+                    : <Table className='w-full' hoverable>
+                        <Table.Head className='text-sm text-center bg-gray-300 font-normal text-gray-700'>
+                            <Table.HeadCell>
+                                image
+                            </Table.HeadCell>
+                            <Table.HeadCell>
+                                Name
+                            </Table.HeadCell>
+                            <Table.HeadCell>
+                                Code
+                            </Table.HeadCell>
+                            <Table.HeadCell>
+                                Brand
+                            </Table.HeadCell>
+                            <Table.HeadCell>
+                                Category
+                            </Table.HeadCell>
+                            <Table.HeadCell>
+                                Price
+                            </Table.HeadCell>
+                            <Table.HeadCell>
+                                Quantity
+                            </Table.HeadCell>
+                            <Table.HeadCell>
+                                Action
+                            </Table.HeadCell>
+                        </Table.Head>
+                        {content}
+                    </Table>
             }
         </div>
 

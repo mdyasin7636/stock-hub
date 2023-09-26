@@ -60,6 +60,7 @@ const AddProduct = () => {
       }, [isError])
       return (
             <div className='ml-16 mt-16'>
+                  <h2 className=" mb-6 font-semibold text-center text-2xl">Add Products</h2>
                   <form onSubmit={handleSubmit(onSubmit)}>
                         <div className='md:flex justify-center gap-16'>
                               <div>
