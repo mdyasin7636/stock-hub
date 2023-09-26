@@ -9,6 +9,7 @@ import AllProducts from './../Pages/Dashboard/Products/All Products/AllProducts'
 import AddProduct from "../Pages/Dashboard/Products/Add Prouct/AddProduct";
 import CreatePurchase from "../Pages/Dashboard/Purchases/CreatePurchase/CreatePurchase";
 import PurchaseHistory from "../Pages/Dashboard/Purchases/PurchaseHistory/PurchaseHistory";
+import EditProductModal from "../Pages/Dashboard/Products/All Products/EditProductModal";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path:"allProducts",
         element: <AllProducts/>
+      },
+      {
+        path:"editProduct/:id",
+        element:<EditProductModal></EditProductModal>
       },
       {
         path:"category",

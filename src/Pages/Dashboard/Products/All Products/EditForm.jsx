@@ -38,9 +38,8 @@ const EditForm = ({ _id, name, photo, product, brand, category, price, descripti
             editProduct({ id: _id, data: editedProduct });
             reset();
       };
-
       useEffect(() => {
-            if (isSuccess) toast.success("Product Added Successfully!")
+            if (isSuccess) toast.success("Product Updated Successfully!")
       }, [isSuccess])
       useEffect(() => {
             if (isError) toast.error(error)
@@ -82,7 +81,7 @@ const EditForm = ({ _id, name, photo, product, brand, category, price, descripti
                                                       <span className="label-text">Category*</span>
                                                 </label>
                                                 <select
-                                                      defaultValue={category} 
+                                                      defaultValue={category}
                                                       {...register("category", { required: true })}
                                                       className="select select-bordered shadow-md shadow-slate-400 bg-slate-100"
                                                 >

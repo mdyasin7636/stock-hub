@@ -85,9 +85,10 @@ const AddProduct = () => {
                                                 <select defaultValue="Choose Brand" {...register("brand", { required: true })} className="select select-bordered shadow-md shadow-slate-400 bg-slate-100">
                                                       <option disabled>Choose Brand</option>
                                                       <option>Adidas</option>
-                                                      <option>Colgate</option>
+                                                      <option>Redmi</option>
                                                       <option>Samsung</option>
-                                                      <option>Huawei</option>
+                                                      <option>Apple</option>
+                                                      <option>Nike</option>
                                                 </select>
                                           </div>
                                           <div className="form-control w-full max-w-xs">
