@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 
 const AllProductList = ({ product }) => {
-      const { _id, photo, name, brand, category, price, quantity } = product
+      const { _id, photo, name, brand, category, price, quantity , product:code} = product
       
       const [deleteProduct, { isSuccess }] = useDeleteProductMutation()
       const handleDelete = (id) => {
@@ -20,13 +20,13 @@ const AllProductList = ({ product }) => {
             <Table.Body className="divide-y">
                   <Table.Row className="bg-white text-center dark:border-gray-700 dark:bg-gray-800">
                         <Table.Cell>
-                              <img src={photo} className="w-12 rounded-xl" alt="" />
+                              <img src={photo} className="w-12 h-12 rounded-xl object-fill" alt="" />
                         </Table.Cell>
                         <Table.Cell>
                               {name}
                         </Table.Cell>
                         <Table.Cell>
-                              69311349
+                              {code}
                         </Table.Cell>
                         <Table.Cell>
                               {brand}
@@ -35,7 +35,7 @@ const AllProductList = ({ product }) => {
                               {category}
                         </Table.Cell>
                         <Table.Cell>
-                              {price}
+                              ${price}
                         </Table.Cell>
                         <Table.Cell>
                               {quantity} pc
