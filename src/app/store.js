@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer from "../features/auth/authSlices.jsx"
-import cartReducer from "../features/cart/cartSlice.jsx"
+import cartReducer, { getCartTotal } from "../features/cart/cartSlice.jsx"
 import { apiSlice } from './../features/api/apiSlice';
 
 export const store = configureStore({
@@ -11,3 +11,5 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)
 })
+
+store.dispatch(getCartTotal())
