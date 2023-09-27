@@ -42,7 +42,7 @@ const AllProductList = ({ product }) => {
                         </Table.Cell>
                         <Table.Cell>
                               <div className='flex gap-2'>
-                                    <Link to="/dashboard/viewProduct"><FaRegEye className='text-blue-500 text-lg'></FaRegEye></Link>
+                                    <Link to={`/dashboard/viewProduct/${_id}`}><FaRegEye className='text-blue-500 text-lg'></FaRegEye></Link>
                                     <Link to={`/dashboard/editProduct/${_id}`}> <FaRegEdit className='text-green-500 text-lg cursor-pointer'></FaRegEdit></Link>
                                     <FaRegTrashAlt onClick={() => handleDelete(_id)} className='text-red-500 text-lg cursor-pointer'></FaRegTrashAlt>
                               </div>

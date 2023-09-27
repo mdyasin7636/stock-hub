@@ -47,6 +47,11 @@ export const router = createBrowserRouter([
         element:<EditProductModal></EditProductModal>
       },
       {
+        path:"viewProduct/:id",
+        element:<ViewProduct></ViewProduct>
+
+      },
+      {
         path:"category",
         element: <Category/>
       },
