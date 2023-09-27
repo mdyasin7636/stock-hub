@@ -1,5 +1,11 @@
+import { useParams } from "react-router-dom";
+import { useGetProductQuery } from "../../../../features/api/apiSlice";
 
 const ViewProduct = () => {
+  const { id } = useParams()
+  console.log(id)
+  const { data: singleProduct, } = useGetProductQuery(id)
+
   return (
     <div>
         <h1 className="text-center text-2xl font-semibold mt-10">Product Details</h1>
@@ -18,7 +24,7 @@ const ViewProduct = () => {
                   >
                     Product Name
                   </th>
-                  <td className="px-24 py-4">Silver</td>
+                  <td className="px-24 py-4">{singleProduct?.name}</td>
                 </tr>
                 <tr className="border-b border-gray-200 dark:border-gray-700">
                   <th
@@ -27,7 +33,7 @@ const ViewProduct = () => {
                   >
                     Product Code
                   </th>
-                  <td className="px-24 py-4">White</td>
+                  <td className="px-24 py-4">{singleProduct?.product}</td>
                 </tr>
                 <tr className="border-b border-gray-200 dark:border-gray-700">
                   <th
@@ -36,7 +42,7 @@ const ViewProduct = () => {
                   >
                     Brand
                   </th>
-                  <td className="px-24 py-4">Black</td>
+                  <td className="px-24 py-4">{singleProduct?.brand}</td>
                 </tr>
                 <tr className="border-b border-gray-200 dark:border-gray-700">
                   <th
@@ -45,7 +51,7 @@ const ViewProduct = () => {
                   >
                     Category
                   </th>
-                  <td className="px-24 py-4">Gray</td>
+                  <td className="px-24 py-4">{singleProduct?.category}</td>
                 </tr>
                 <tr className="border-b border-gray-200 dark:border-gray-700">
                   <th
@@ -54,7 +60,7 @@ const ViewProduct = () => {
                   >
                     Price
                   </th>
-                  <td className="px-24 py-4">Red</td>
+                  <td className="px-24 py-4">${singleProduct?.price}</td>
                 </tr>
                 <tr className="border-b border-gray-200 dark:border-gray-700">
                   <th
@@ -63,7 +69,7 @@ const ViewProduct = () => {
                   >
                     Quantity
                   </th>
-                  <td className="px-24 py-4">Red</td>
+                  <td className="px-24 py-4">{singleProduct?.quantity}pcs</td>
                 </tr>
                 <tr>
                   <th
@@ -72,7 +78,7 @@ const ViewProduct = () => {
                   >
                     Description
                   </th>
-                  <td className="px-24 py-4">Red</td>
+                  <td className="px-24 py-4">{singleProduct?.description}</td>
                 </tr>
               </tbody>
             </table>
@@ -82,7 +88,7 @@ const ViewProduct = () => {
         <div>
           <img
             className="w-72"
-            src="https://i.ibb.co/QbKT5Zn/redmi-note-13-pro.png"
+            src={singleProduct?.photo}
             alt=""
           />
         </div>
