@@ -81,6 +81,7 @@ const Login = () => {
                 <input
                   type="email"
                   placeholder="Email"
+                  defaultValue="brainytitans@gmail.com"
                   className="input input-bordered w-full"
                   name="email"
                   {...register("email", { required: true })}
@@ -96,6 +97,7 @@ const Login = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
+                  defaultValue="123456"
                   className="input input-bordered w-full"
                   {...register("password", { required: true })}
                 />
