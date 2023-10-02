@@ -29,13 +29,15 @@ const Category = () => {
         <button
           className="btn text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black"
           onClick={() => setIsOpen(!isOpen)}
-          >
+        >
           Add Category
         </button>
       </div>
       <div className="mx-24 flex-grow mt-6 shadow-xl">
-      <h2 className=" mb-6 font-semibold text-center text-2xl">Category Products</h2>
-      <Table hoverable className="">
+        <h2 className=" mb-6 font-semibold text-center text-2xl">
+          Category Products
+        </h2>
+        <Table hoverable className="">
           <Table.Head className="text-base font-semibold text-center">
             <Table.HeadCell className="">Category Code</Table.HeadCell>
             <Table.HeadCell className="">Category Name</Table.HeadCell>

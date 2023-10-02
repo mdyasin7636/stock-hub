@@ -104,7 +104,7 @@ const Dashboard = () => {
                 }`}
                 onClick={() => menu.submenu && toggleSubMenu(index)}
               >
-                <span className="text-2xl block float-left">
+                <span className="text-2xl block float-left ">
                   {menu.icon ? menu.icon : <RxDashboard />}
                 </span>
                 <span
@@ -118,7 +118,7 @@ const Dashboard = () => {
                   <BsChevronDown
                     className={`text-xl ${
                       submenuOpen[index] ? "rotate-180" : ""
-                    }`}
+                    } `}
                   />
                 )}
               </Link>
@@ -128,7 +128,7 @@ const Dashboard = () => {
                     <Link
                       to={submenuItem?.link}
                       key={submenuIndex}
-                      className="flex items-center text-sm gap-x-4 font-medium p-2 mt-2 px-5 hover:bg-gray-800 rounded-md cursor-pointer "
+                      className="flex items-center text-sm gap-x-4 font-medium p-2 mt-2 px-5 hover:bg-gray-800 rounded-md cursor-pointer"
                     >
                       {submenuItem.title}
                     </Link>
