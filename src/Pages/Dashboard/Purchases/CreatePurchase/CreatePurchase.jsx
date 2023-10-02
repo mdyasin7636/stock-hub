@@ -4,13 +4,15 @@ import { useGetProductsQuery } from "../../../../features/api/apiSlice";
 import { FadeLoader } from 'react-spinners';
 import CartItems from "./CartItems";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCartTotal } from "../../../../features/cart/cartSlice";
+import PurchaseModal from "./PurchaseModal";
 
 const CreatePurchase = () => {
   const { data, isError, isLoading, error } = useGetProductsQuery()
   const { cartItems, quantityAmount } = useSelector(state => state.cart)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  let [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     dispatch(getCartTotal())
@@ -109,9 +111,10 @@ const CreatePurchase = () => {
               </ul>
             </div>
           </div>
-          <button className="btn btn-sm text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black font-semibold">
+          <button onClick={() => setIsOpen(!isOpen)} className="btn btn-sm text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black font-semibold">
             Place Order
           </button>
+          <PurchaseModal isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>
     </div>
