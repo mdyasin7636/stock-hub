@@ -111,7 +111,7 @@ const CreatePurchase = () => {
               </ul>
             </div>
           </div>
-          <button className="btn btn-sm text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black font-semibold">
+          <button onClick={() => setIsOpen(!isOpen)} className="btn btn-sm text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black font-semibold">
             Place Order
           </button>
           <PurchaseModal isOpen={isOpen} setIsOpen={setIsOpen} />
